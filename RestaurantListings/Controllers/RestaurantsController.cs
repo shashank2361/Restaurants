@@ -37,11 +37,7 @@ namespace RestaurantListings.Controllers
         {
             var tagsList = tags?.Split(',')?.ToList();
             var allList = _context.Restaurants.ToList();
-            //if (string.IsNullOrEmpty(tags))
-            //{
-            //    return allList;
-            //}
-
+   
    
 
             var restaurants = (from restaurant in allList
@@ -49,12 +45,7 @@ namespace RestaurantListings.Controllers
                                where tagexist == true
                                select restaurant);
 
-
-
-
-            //var restaurants = from restaurant in allList
-            //               join id in distinctIds on restaurant.Id equals id
-            //               select restaurant;
+ 
             return restaurants.ToList();
         }
 
@@ -63,10 +54,7 @@ namespace RestaurantListings.Controllers
         public Restaurant PostRating(int id, Restaurant restaurant)
         {
 
-            //var dbMovie = HttpContext.Items["entity"] as Restaurant;
-
-            //dbMovie.Map(movie);
-
+        
 
             _context.Restaurants.Update(restaurant);
             _context.SaveChanges();
